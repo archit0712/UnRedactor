@@ -25,11 +25,15 @@ The project uses two main datasets:
 - Most names appear only once or twice, indicating high variability
 - Common names include actors, directors, and film industry personalities
 
+![Name Length Distribution](https://raw.githubusercontent.com/archit0712/cis6930fa24-project2/refs/heads/main/name_length_distribution.png?token=GHSAT0AAAAAAC2GMXQZWGPGTXDNS374FOAKZ2GFCKQ)
+
 #### Context Characteristics
 - Average context length: 204 characters
 - Median context length: 135 characters
 - Range: 6-1,845 characters
 - Most contexts fall between 90-217 characters
+
+![Context Distribution](https://raw.githubusercontent.com/archit0712/cis6930fa24-project2/475421425cc1f3cce9ead48c9ffeab17bcba2025/context_length_distribution.png?token=GHSAT0AAAAAAC2GMXQYV6IBXHKTJ76YBKCWZ2GFARQ)
 
 #### Name Length Statistics
 - Average length: 10.5 characters
