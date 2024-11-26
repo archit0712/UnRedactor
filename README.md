@@ -113,6 +113,11 @@ This thoughtful design process resulted in a robust and flexible unredactor pipe
 
 The pipeline generates a `submission.tsv` file containing predictions for the test data. It also saves the trained model as `unredactor_model.joblib`.
 
+### Results
+* Precision: 0.85
+* Recall: 0.09
+* F1 Score: 0.07
+
 ## Troubleshooting
 
 If you encounter any issues, ensure that:

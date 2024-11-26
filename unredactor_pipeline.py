@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import RandomizedSearchCV
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
@@ -48,9 +49,9 @@ class FeatureExtractor:
         self.sid = SentimentIntensityAnalyzer()
         self.vectorizer = CountVectorizer(
             ngram_range=(1, 3),
-            max_features=100,
-            min_df=2,
-            stop_words='english'
+            max_features=10,
+            min_df=1,
+            # stop_words='english'
         )
         self.vectorizer_fitted = False
         

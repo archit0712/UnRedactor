@@ -8,7 +8,7 @@ matplotlib = "*"
 pandas = "*"
 nltk = "*"
 scikit-learn = "*"
-
+pytest = "*"
 [dev-packages]
 
 [requires]
