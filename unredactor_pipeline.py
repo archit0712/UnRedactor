@@ -11,6 +11,7 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics import precision_recall_fscore_support
 import joblib
+import argparse
 
 def load_data(file_path, is_test=False):
     # Read file content
@@ -232,8 +233,8 @@ class UnredactorPipeline:
         
         # Validate the model
         y_pred = self.model.predict(X_val)
-        print("\nValidation Report:")
-        print(classification_report(y_val, y_pred))
+        precision, recall, f1, _ = precision_recall_fscore_support(y_val, y_pred, average='weighted',zero_division=1)
+        print(f"Validation scores: Precision={precision:.2f}, Recall={recall:.2f}, F1={f1:.2f}")
         
         return self
     
@@ -271,7 +272,12 @@ class UnredactorPipeline:
         self.model = data['model']
         self.feature_names = data['feature_names']
         print("Model loaded successfully from", filepath)
- 
+        
+    # def evaluate_model(pipeline, X_test, y_test):
+    #     y_pred = self.predict(X_test)
+    #     precision, recall, f1, _ = precision_recall_fscore_support(y_test, y_pred, average='weighted')
+    #     return precision, recall, f1
+
 def main():
     try:
         # Load training data with custom loader
