@@ -12,6 +12,65 @@ The unredactor pipeline uses a combination of natural language processing and ma
 [![Watch the video](https://lh3.googleusercontent.com/pw/AP1GczNlNM-FeNkXhuDQLX0aoj6SOHn5hwJVj3ufng5VCG_GyU-2LzzKP2JAE_Pf2T24LMBGYhPYfCO_ELt9aAupGMd8qDqsRVec8_XjsMP1EdWkdfk826RUagm9ac_DssHp79BiBWijyKSrkBKXJbAFGkbR0g=w1163-h653-s-no-gm?authuser=1)](https://youtu.be/U4ywFrcJFsI)
 
 
+## Data Exploration and Analysis
+
+### Dataset Overview
+The project uses two main datasets:
+- Training set (unredactor.tsv): 4,457 samples containing redacted names and their contexts
+- Test set (test.tsv): 200 samples containing only redacted contexts
+
+#### Name Distribution Analysis
+- Total unique names: 3,020 out of 4,457 samples
+- Most frequent name: "Sadako" (37 occurrences)
+- Most names appear only once or twice, indicating high variability
+- Common names include actors, directors, and film industry personalities
+
+#### Context Characteristics
+- Average context length: 204 characters
+- Median context length: 135 characters
+- Range: 6-1,845 characters
+- Most contexts fall between 90-217 characters
+
+#### Name Length Statistics
+- Average length: 10.5 characters
+- Median length: 11 characters
+- Range: 2-27 characters
+- Most names are between 7-13 characters
+
+#### Feature Engineering Approach
+The model extracts several types of features:
+
+1. **Length Features**
+   - Redacted name length
+   - Context length
+   - Words before/after redaction
+
+2. **Context Window Features**
+   - Words immediately surrounding redaction
+   - Window size analysis
+
+3. **N-gram Features**
+   - Using CountVectorizer with parameters:
+   - n-gram range: 1-3
+   - max features: 100
+   - minimum document frequency: 2
+
+4. **Sentiment Features**
+   - Using VADER sentiment analyzer
+   - Captures emotional context
+
+5. **Position Features**
+   - Relative position of redaction
+   - Start/end position indicators
+
+## Libraries Used
+- pandas: Data manipulation and analysis
+- scikit-learn: Machine learning algorithms and preprocessing
+- NLTK: Natural language processing
+- joblib: Model persistence
+
+
+
 ## Features
 
 - **Data Loading**: Supports loading of both training and test data from TSV files.
@@ -20,6 +79,8 @@ The unredactor pipeline uses a combination of natural language processing and ma
 - **Model Evaluation**: Includes validation step with classification report.
 - **Prediction**: Generates predictions for test data.
 - **Model Persistence**: Saves and loads trained models using joblib.
+
+
 
 ## Requirements
 
