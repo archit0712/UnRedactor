@@ -49,9 +49,9 @@ class FeatureExtractor:
         self.sid = SentimentIntensityAnalyzer()
         self.vectorizer = CountVectorizer(
             ngram_range=(1, 3),
-            max_features=10,
-            min_df=1,
-            # stop_words='english'
+            max_features=100,
+            min_df=2,
+            stop_words='english'
         )
         self.vectorizer_fitted = False
         
