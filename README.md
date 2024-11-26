@@ -7,6 +7,11 @@ This project implements an unredactor pipeline designed to predict redacted name
 
 The unredactor pipeline uses a combination of natural language processing and machine learning to extract features from redacted text and predict the original names. It employs a Random Forest classifier as the core prediction model.
 
+## Video Demo (Please refer to github repo for latest video)
+
+[![Watch the video](https://lh3.googleusercontent.com/pw/AP1GczNlNM-FeNkXhuDQLX0aoj6SOHn5hwJVj3ufng5VCG_GyU-2LzzKP2JAE_Pf2T24LMBGYhPYfCO_ELt9aAupGMd8qDqsRVec8_XjsMP1EdWkdfk826RUagm9ac_DssHp79BiBWijyKSrkBKXJbAFGkbR0g=w1163-h653-s-no-gm?authuser=1)](https://youtu.be/U4ywFrcJFsI)
+
+
 ## Features
 
 - **Data Loading**: Supports loading of both training and test data from TSV files.
@@ -108,6 +113,54 @@ This thoughtful design process resulted in a robust and flexible unredactor pipe
 
 - To modify feature extraction, edit the `FeatureExtractor` class.
 - To adjust the model, modify the `RandomForestClassifier` parameters in the `UnredactorPipeline` class.
+
+## Running Test Cases
+
+To run the test cases for the Unredactor Pipeline, follow these steps:
+
+1. Ensure you have pytest installed:
+   ```bash
+   pipenv install pytest
+   ```
+
+2. Navigate to the project directory containing the test files.
+
+3. Run the tests using the following command:
+   ```bash
+   pipenv run python -m pytest
+   ```
+
+## Test Cases and Their Significance
+
+### 1. Test Data Loading (`test_load_data`)
+
+**Significance**: This test ensures that the `load_data` function correctly reads and processes both training and test data files.
+
+**Explanation**: It verifies that:
+- The function returns a pandas DataFrame.
+- The DataFrame contains the expected columns for both training and test data.
+- The data is loaded with the correct structure.
+
+### 2. Test Feature Extraction (`test_feature_extractor`)
+
+**Significance**: This test checks the functionality of the `FeatureExtractor` class, which is crucial for preparing input data for the model.
+
+**Explanation**: It confirms that:
+- The `extract_features` method returns a dictionary of features.
+- All expected feature types (length, context window, n-grams, sentiment, position) are present.
+- The feature extraction process handles redacted text correctly.
+
+### 3. Test Unredactor Pipeline (`test_unredactor_pipeline`)
+
+**Significance**: This test validates the end-to-end functionality of the `UnredactorPipeline` class, which is the core of the unredaction process.
+
+**Explanation**: It verifies that:
+- The pipeline can be trained on sample data without errors.
+- The trained model can generate predictions for test data.
+- The output predictions are in the correct format (DataFrame with 'id' and 'name' columns).
+
+These test cases are designed to ensure the reliability and correctness of the Unredactor Pipeline at different stages of its operation. They help catch potential issues in data processing, feature extraction, and model training/prediction, which are critical for the overall performance of the unredaction task.
+
 
 ## Output
 

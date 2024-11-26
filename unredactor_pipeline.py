@@ -273,12 +273,9 @@ class UnredactorPipeline:
         self.model = data['model']
         self.feature_names = data['feature_names']
         print("Model loaded successfully from", filepath)
-        
-    # def evaluate_model(pipeline, X_test, y_test):
-    #     y_pred = self.predict(X_test)
-    #     precision, recall, f1, _ = precision_recall_fscore_support(y_test, y_pred, average='weighted')
-    #     return precision, recall, f1
-
+    
+    
+    
 def main():
     try:
         # Load training data with custom loader
